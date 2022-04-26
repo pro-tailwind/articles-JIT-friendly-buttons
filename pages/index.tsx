@@ -8,7 +8,9 @@ export default function Homepage() {
       {/* Small buttons */}
       <div className="mt-12 space-y-6">
         <div className="flex gap-4">
-          <Button size="small">Primary button</Button>
+          <Button size="small" variant="secondary">
+            Primary button
+          </Button>
           <Button size="small" variant="secondary">
             Secondary button
           </Button>

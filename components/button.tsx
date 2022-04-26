@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import { ButtonHTMLAttributes } from 'react'
 
 const baseClasses = 'rounded-md font-medium focus:outline-none'
 
@@ -15,7 +16,15 @@ const sizesLookup = {
   large: 'px-8 py-4 text-lg focus:ring focus:ring-offset-2',
 }
 
-export const Button = (props) => {
+type ButtonVariant = keyof typeof variantsLookup
+type ButtonSize = keyof typeof sizesLookup
+
+type ButtonProps = {
+  variant: ButtonVariant
+  size: ButtonSize
+}
+
+export const Button = (props: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
   const { variant, size } = props
   return <button className={cx(baseClasses, variantsLookup[variant], sizesLookup[size])} {...props} />
 }
