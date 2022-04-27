@@ -2,43 +2,41 @@ import { Button } from '../components/button'
 
 export default function Homepage() {
   return (
-    <div className="mx-auto mt-20 max-w-4xl px-8">
+    <div className="mx-auto mt-20 max-w-5xl px-8">
       <h1 className="text-2xl font-medium">Just-in-Time-friendly style variants for Tailwind CSS components</h1>
 
-      {/* Small buttons */}
+      {/* Small */}
       <div className="mt-12 space-y-6">
         <div className="flex gap-4">
+          <Button size="small">Primary</Button>
           <Button size="small" variant="secondary">
-            Primary button
-          </Button>
-          <Button size="small" variant="secondary">
-            Secondary button
+            Secondary
           </Button>
           <Button size="small" variant="danger">
-            Danger button!
+            Danger!
           </Button>
-          <Button size="small" variant="link">
-            Link button
+          <Button size="small" variant="text">
+            Text
           </Button>
         </div>
-        {/* Medium buttons */}
+        {/* Medium */}
         <div className="flex gap-4">
-          <Button>Primary button</Button>
-          <Button variant="secondary">Secondary button</Button>
-          <Button variant="danger">Danger button!</Button>
-          <Button variant="link">Link button</Button>
+          <Button>Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="danger">Danger!</Button>
+          <Button variant="text">Text</Button>
         </div>
-        {/* Large buttons */}
+        {/* Large */}
         <div className="flex gap-4">
-          <Button size="large">Primary button</Button>
+          <Button size="large">Primary</Button>
           <Button size="large" variant="secondary">
-            Secondary button
+            Secondary
           </Button>
           <Button size="large" variant="danger">
-            Danger button!
+            Danger!
           </Button>
-          <Button size="large" variant="link">
-            Link button
+          <Button size="large" variant="text">
+            Text
           </Button>
         </div>
       </div>

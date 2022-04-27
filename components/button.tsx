@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import { ButtonHTMLAttributes } from 'react'
 
 const baseClasses = 'rounded-md font-medium focus:outline-none'
@@ -6,8 +5,8 @@ const baseClasses = 'rounded-md font-medium focus:outline-none'
 const variantsLookup = {
   primary: 'bg-cyan-500 text-white shadow-lg hover:bg-cyan-400 focus:bg-cyan-400 focus:ring-cyan-500',
   secondary: 'bg-slate-200 text-slate-800 shadow hover:bg-slate-300 focus:bg-slate-300 focus:ring-slate-500',
-  danger: 'bg-red-500 text-white shadow-lg hover:bg-red-400 focus:bg-red-400 focus:ring-red-500 uppercase',
-  link: 'text-slate-700 text-hover:text-slate-600 focus:text-slate-600 focus:ring-slate-500',
+  danger: 'bg-red-500 text-white shadow-lg uppercase tracking-wider hover:bg-red-400 focus:bg-red-400 focus:ring-red-500',
+  text: 'text-slate-700 uppercase underline hover:text-slate-600 hover:bg-slate-900/5 focus:text-slate-600 focus:ring-slate-500',
 }
 
 const sizesLookup = {
@@ -19,14 +18,14 @@ const sizesLookup = {
 type ButtonVariant = keyof typeof variantsLookup
 type ButtonSize = keyof typeof sizesLookup
 
-type ButtonProps = {
+interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
   variant: ButtonVariant
   size: ButtonSize
 }
 
-export const Button = (props: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const { variant, size } = props
-  return <button className={cx(baseClasses, variantsLookup[variant], sizesLookup[size])} {...props} />
+export const Button = (props: ButtonProps) => {
+  const { variant, size, ...rest } = props
+  return <button {...rest} className={`${baseClasses} ${variantsLookup[variant]} ${sizesLookup[size]}`} />
 }
 
 Button.defaultProps = {
