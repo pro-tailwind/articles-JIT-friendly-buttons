@@ -19,17 +19,12 @@ type ButtonVariant = keyof typeof variantsLookup
 type ButtonSize = keyof typeof sizesLookup
 
 interface ButtonProps extends Omit<ComponentProps<'button'>, 'className'> {
-  variant: ButtonVariant
-  size: ButtonSize
+  variant?: ButtonVariant
+  size?: ButtonSize
   className?: "The className attribute is not allowed (and won't do anything)"
 }
 
 export const Button = (props: ButtonProps) => {
-  const { variant, size, ...rest } = props
+  const { variant = 'primary', size = 'medium', ...rest } = props
   return <button {...rest} className={`${baseClasses} ${variantsLookup[variant]} ${sizesLookup[size]}`} />
-}
-
-Button.defaultProps = {
-  variant: 'primary',
-  size: 'medium',
 }
