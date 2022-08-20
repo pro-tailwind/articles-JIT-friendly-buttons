@@ -14,11 +14,6 @@ const sizesLookup = {
 }
 
 export const Button = (props) => {
-  const { variant, size, ...rest } = props
+  const { variant = 'primary', size = 'medium', ...rest } = props
   return <button {...rest} className={`${baseClasses} ${variantsLookup[variant]} ${sizesLookup[size]}`} />
-}
-
-Button.defaultProps = {
-  variant: 'primary',
-  size: 'medium',
 }
